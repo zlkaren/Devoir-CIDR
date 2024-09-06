@@ -21,7 +21,7 @@ void* mask(int sous_reseau, char* chaine)
     return chaine;
 }
 
-char* ip_binaire(char* a, int f)
+char* binaire(char* a, int f)
 {
     int p = 0;
     int s = 0;
@@ -107,7 +107,11 @@ void sous_reseau_broad(char * reseau_initial,char*broad_one,int decoupe,char * b
 		int c = 0;
 		int d = 0;
 		int k = 1;
-				
+			
+		printf("\n\tadresse reseau a partir du masque => %s", reseau_initial);
+		printf("\n\tadresse broadcast a partir du masque => %s", broad_fin_decimal);
+		if (decoupe < 31)
+		{	
 		do
 		{
 		///vider les variables pour eviter les accumulation
@@ -183,14 +187,18 @@ void sous_reseau_broad(char * reseau_initial,char*broad_one,int decoupe,char * b
 			printf("\n\n\tsous reseau %d\n\t**********************************", k);
 			printf("\nadresse reseau =%s", reseau_second);
 			printf("\nadresse broadcast = %s\n",broad_fin_decimal);
-			printf("\n\tReached the final broadcast address. Stopping recursion.\n");
+			
 			
 			return;
 			}
 				
 		}while(strstr(broad_one, broad_fin_decimal) == NULL );
 		printf("adresse broadcast = %s",broad_fin_decimal);
-
+	}
+	else
+	{
+				printf("\nfin decoupage ");
+	}
 
     
 }
